@@ -1,5 +1,5 @@
-﻿//Si vuole progettare un sistema per la gestione di una biblioteca. Gli utenti
-//si possono registrare al sistema, fornendo:
+﻿//Si vuole progettare un sistema per la gestione di una biblioteca.
+//Gli utenti si possono registrare al sistema, fornendo:
 
 //cognome,
 //nome,
