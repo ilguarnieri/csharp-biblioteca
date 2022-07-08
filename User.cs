@@ -13,15 +13,17 @@ namespace csharp_biblioteca
         public string email;
         public string password;
         public string cellNumber;
+        public bool register;
 
         //costruttore
-        public User(string name, string surname, string email, string password, string cellNumber)
+        public User(string name, string surname, string email, string password, string cellNumber, bool register = false)
         {
             this.name = name;
             this.surname = surname;
             this.email = email;
             this.password = password;
             this.cellNumber = cellNumber;
+            this.register = register;
         }
     }
 }
