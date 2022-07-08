@@ -7,8 +7,6 @@
 //password,
 //recapito telefonico,
 
-//Gli utenti registrati possono effettuare dei prestiti sui documenti che sono di vario tipo (libri, DVD).
-
 //I documenti sono caratterizzati da:
 
 //un codice identificativo di tipo stringa (ISBN per i libri, numero seriale per i DVD),
@@ -26,3 +24,30 @@
 //effettuare dei prestiti registrando il periodo (Dal/Al) del prestito e il documento.
 
 //Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di un utente.
+
+
+using csharp_biblioteca;
+
+//creazioni liste
+List<User> registeredUsers = new List<User>();
+List<Book> books = new List<Book>();
+List<Dvd> dvds = new List<Dvd>();
+
+//utenti registrati
+registeredUsers.Add(new User("Angelo", "Guarnieri", "a", "a", "3214567890", true));
+registeredUsers.Add(new User("Alessio", "Guarnieri", "aleg@gmail.com", "12345b", "3224567890", true));
+registeredUsers.Add(new User("Roberta", "Verdi", "verdi@gmail.com", "12345c", "3234567890", true));
+
+//articoli della libreria
+books.Add(new Book("978-8831007023", "Harry Potter - La serie completa", 2021, "Fantasy", false, "F20", "J.K.Rowling", 3808));
+books.Add(new Book("978-8804598909", "Il visconte dimenticato", 2010, "Letteratura", false, "L14", "Italo Calvino", 133));
+books.Add(new Book("978-8807900587", "Il ritratto di Dorian Gray", 2013, "Letteratura", false, "L8", "Oscar Wilde", 272));
+dvds.Add(new Dvd("B09XR8Q3LY", "Animali Fantastici - I Segreti Di Silente", 2022, "Fantasy", false, "F4", "David Yates", 142));
+dvds.Add(new Dvd("B09TRK52B4", "The Batman", 2022, "Fantasy", false, "F8", "Matt Reeves", 176));
+dvds.Add(new Dvd("B09T7CR5CC", "Spider-Man No Way Home", 2022, "Fantasy", false, "F6", "Jon Watts", 148));
+
+
+
+Library library = new Library(registeredUsers, books, dvds);
+
+library.Home(" MENÙ");

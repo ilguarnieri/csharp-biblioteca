@@ -29,5 +29,12 @@ namespace csharp_biblioteca
             this.numberPages = numberPages;
         }
 
+
+        public override void stampInfo()
+        {
+            base.stampInfo();
+            Console.WriteLine($"Numero pagine: {this.numberPages}");
+        }
+
     }
 }

@@ -29,5 +29,11 @@ namespace csharp_biblioteca
             this.duration = duration;
         }
 
+        public override void stampInfo()
+        {
+            base.stampInfo();
+            Console.WriteLine($"Durata: {this.duration}min");
+        }
+
     }
 }

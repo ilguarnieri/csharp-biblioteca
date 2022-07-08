@@ -29,6 +29,25 @@ namespace csharp_biblioteca
         }
 
 
+        public virtual void stampInfo()
+        {
+            Console.WriteLine($" {this.title}");
+            Console.WriteLine($"by {this.author}");
+            Console.WriteLine("------------------------------\n");
 
+            Console.WriteLine($"Anno {this.year}");
+            Console.WriteLine($"Genere: {this.sector}");
+            Console.WriteLine($"Scaffale: {this.shelf}");
+            Console.Write("Disponibile: ");
+            if (this.state)
+            {
+                Console.WriteLine("SI");
+            }
+            else
+            {
+                Console.WriteLine("NO");
+            }
+
+        }
     }
 }
