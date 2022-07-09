@@ -32,7 +32,7 @@ namespace csharp_biblioteca
         public virtual void stampInfo()
         {
             Console.WriteLine($" {this.title}");
-            Console.WriteLine($"by {this.author}");
+            Console.WriteLine($" by {this.author}");
             Console.WriteLine("------------------------------\n");
 
             Console.WriteLine($"Anno {this.year}");

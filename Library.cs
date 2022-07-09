@@ -13,6 +13,7 @@ namespace csharp_biblioteca
         public List<Dvd> dvds;
 
         private bool isLog = false;
+        private int idUser = -1;
 
         //costruttore
         public Library(List<User> users, List<Book> books, List<Dvd> dvds)
@@ -92,18 +93,19 @@ namespace csharp_biblioteca
             Console.Write("PASSWORD: ");
             string password = Console.ReadLine();
 
-            foreach (User user in this.users)
+            for (int i = 0; i < this.users.Count; i++)
             {
-                if(user.email == email && user.password == password)
+                if (this.users[i].email == email && this.users[i].password == password)
                 {
-                    isLog = true;
+                    this.isLog = true;
+                    this.idUser = i;
                     Console.Clear();
                     this.Logged();
                     break;
                 }
             }
 
-            if (!isLog)
+            if (!this.isLog)
             {
                 this.Home(" INSERITI DATI NON CORRETTI");
             }
@@ -141,7 +143,8 @@ namespace csharp_biblioteca
 
                     break;
                 case 4:
-                    isLog = false;
+                    this.isLog = false;
+                    this.idUser = -1;
                     this.Home(" MENÙ");
                     break;
                 case 5:
@@ -160,11 +163,12 @@ namespace csharp_biblioteca
             Console.WriteLine("1. Cerca ISBN");
             Console.WriteLine("2. Cerca titolo");
             Console.WriteLine("3. Torna indietro");
-            Console.WriteLine("4. Exit\n");
+            Console.WriteLine("4. Logout");
+            Console.WriteLine("5. Exit\n");
 
             byte choice;
 
-            choice = this.loopChoice(4);
+            choice = this.loopChoice(5);
 
             switch (choice)
             {
@@ -178,6 +182,11 @@ namespace csharp_biblioteca
                     this.Logged();
                     break;
                 case 4:
+                    this.isLog = false;
+                    this.idUser = -1;
+                    this.Home(" MENÙ");
+                    break;
+                case 5:
                     this.Exit();
                     break;
             }
@@ -231,6 +240,7 @@ namespace csharp_biblioteca
             {
                 if (book.title == title)
                 {
+                    Console.Clear();
                     foundBook = true;
                     this.BookInfo(book);
                     break;
@@ -249,19 +259,19 @@ namespace csharp_biblioteca
 
         private void BookInfo(Book book)
         {
-            Console.Clear();
             Console.WriteLine($" {book.title}");
             Console.WriteLine("------------------------------\n");
 
             Console.WriteLine("1. Informazioni");
             Console.WriteLine("2. Noleggia");
             Console.WriteLine("3. Restituisci");
-            Console.WriteLine("4. Cerca un altro articol");
-            Console.WriteLine("5. Exit\n");
+            Console.WriteLine("4. Menù principale");
+            Console.WriteLine("5. Logout");
+            Console.WriteLine("6. Exit\n");
 
             byte choice;
 
-            choice = this.loopChoice(5);
+            choice = this.loopChoice(6);
 
             switch (choice)
             {
@@ -271,7 +281,7 @@ namespace csharp_biblioteca
                     this.MenuInfo();              
                     break;
                 case 2:
-                    
+                    this.RentalBool(book);
                     break;
                 case 3:
 
@@ -280,8 +290,39 @@ namespace csharp_biblioteca
                     this.Logged();
                     break;
                 case 5:
+                    this.isLog = false;
+                    this.idUser = -1;
+                    this.Home(" MENÙ");
+                    break;
+                case 6:
                     this.Exit();
                     break;
+            }
+        }
+
+
+
+        private void RentalBool(Book book)
+        {
+            Console.Clear();
+            if (!book.state)
+            {
+                Console.WriteLine($" {book.title}");
+                Console.WriteLine("------------------------------\n");
+
+                Console.WriteLine("Noleggia questo libro");
+                Console.Write("dal: ");
+                string startDate = Console.ReadLine();
+                Console.Write("al: ");
+                string endDate = Console.ReadLine();
+
+                
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Mi dispiace il libro non è disponibile.");
+                this.BookInfo(book);
             }
         }
 
@@ -291,8 +332,9 @@ namespace csharp_biblioteca
         {
             Console.WriteLine("\n1. Noleggia");
             Console.WriteLine("2. Restituisci");
-            Console.WriteLine("3. Cerca un altro articolo");
-            Console.WriteLine("4. Exit\n");
+            Console.WriteLine("3. Menù principale");
+            Console.WriteLine("4. Logout");
+            Console.WriteLine("5. Exit\n");
 
             byte choice;
 
@@ -310,6 +352,11 @@ namespace csharp_biblioteca
                     this.Logged();
                     break;
                 case 4:
+                    this.isLog = false;
+                    this.idUser = -1;
+                    this.Home(" MENÙ");
+                    break;
+                case 5:
                     this.Exit();
                     break;
             }
@@ -319,7 +366,6 @@ namespace csharp_biblioteca
 
         private void Exit()
         {
-            isLog = false;
             Console.Clear();
             Console.WriteLine(" TORNA A TROVARCI PRESTO!");
             Console.WriteLine("------------------------------\n");
