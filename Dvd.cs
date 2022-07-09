@@ -23,8 +23,8 @@ namespace csharp_biblioteca
         public int duration;
 
         //costruttore
-        public Dvd(string sn, string title, uint year, string sector, bool state, string shelf, string author, int duration) :
-            base (sn, title, year, sector, state, shelf, author)
+        public Dvd(string sn, string type, string title, uint year, string sector, bool state, string shelf, string author, int duration) :
+            base (sn, type, title, year, sector, state, shelf, author)
         {
             this.duration = duration;
         }

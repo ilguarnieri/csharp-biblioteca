@@ -9,6 +9,7 @@ namespace csharp_biblioteca
     internal class Document
     {
         public string id;
+        public string type;
         public string title;
         public uint year;
         public string sector;
@@ -17,9 +18,10 @@ namespace csharp_biblioteca
         public string author;
 
         //costruttore
-        public Document(string id, string title, uint year, string sector, bool state, string shelf, string author)
+        public Document(string id, string type, string title, uint year, string sector, bool state, string shelf, string author)
         {
             this.id = id;
+            this.type = type;
             this.title = title;
             this.year = year;
             this.sector = sector;
@@ -39,7 +41,7 @@ namespace csharp_biblioteca
             Console.WriteLine($"Genere: {this.sector}");
             Console.WriteLine($"Scaffale: {this.shelf}");
             Console.Write("Disponibile: ");
-            if (this.state)
+            if (!this.state)
             {
                 Console.WriteLine("SI");
             }

@@ -15,6 +15,8 @@ namespace csharp_biblioteca
         public string cellNumber;
         public bool register;
 
+        public List<Rental> rentalUser = new List<Rental>();
+
         //costruttore
         public User(string name, string surname, string email, string password, string cellNumber, bool register = false)
         {
