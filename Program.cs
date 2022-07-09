@@ -35,8 +35,8 @@ List<Dvd> dvds = new List<Dvd>();
 List<Rental> rentals = new List<Rental>();
 
 //utenti registrati
-registeredUsers.Add(new User("Angelo", "Guarnieri", "a", "a", "3214567890", true));
-registeredUsers.Add(new User("Alessio", "Guarnieri", "b", "b", "3224567890", true));
+registeredUsers.Add(new User("Angelo", "Guarnieri", "ag@gmail.com", "12345a", "3214567890", true));
+registeredUsers.Add(new User("Alessio", "Guarnieri", "al@gmail.com", "12345b", "3224567890", true));
 registeredUsers.Add(new User("Roberta", "Verdi", "verdi@gmail.com", "12345c", "3234567890", true));
 
 //articoli della libreria
